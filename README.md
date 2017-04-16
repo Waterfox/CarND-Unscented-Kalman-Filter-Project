@@ -1,46 +1,50 @@
-# Unscented Kalman Filter Project Starter Code
-Self-Driving Car Engineer Nanodegree Program
 
----
+# Unscented Kalman Filter Project
 
-## Dependencies
+Build the project from build directory
+```
+$cmake..&& make
+```
+Run the kalman Filter from the build directory
+```
+./UnscentedKF ../data/sample-laser-radar-measurement-data-1.txt ../results/data1_out.txt
 
-* cmake >= v3.5
-* make >= v4.1
-* gcc/g++ >= v5.4
+```
 
-## Basic Build Instructions
+## Dataset 1
+Accuracy - RMSE:
+- x: 0.77
+- y: 0.86
+- vx:  0.58
+- vy:  0.59
+- std_a_ = 3.0
+- std_yawdd_ = 0.6
 
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./UnscentedKF path/to/input.txt path/to/output.txt`. You can find
-   some sample inputs in 'data/'.
-    - eg. `./UnscentedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt`
+The following plots show the output for dataset 1. Interestingly, the velocity is tracked as negative. The RMSE would increase slightly if the velocity and yaw were flipped after prediction, perhaps the yaw rate also had to be managed.
 
-## Editor Settings
+![alt text](\results\data1_1.png "Logo Title Text 1")
+![alt text](\results\data1_2.png "Logo Title Text 1")
 
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
+The following plots show the NIS for the laser and radar data. It appears the process noise for the laser was estimated conservatively, while the noise the radar was estimated appropriately.
 
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
+![alt text](\results\data1_NIS_laser.png "Logo Title Text 1")
+![alt text](\results\data1_NIS_radar.png "Logo Title Text 1")
 
-## Code Style
 
-Please stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html) as much as possible.
+## Dataset 2
+Accuracy - RMSE:
+- x:  0.193477
+- y:  0.189355
+- vx:  0.524904
+- vy:   0.50964
+- std_a_ = 2.5
+- std_yawdd_ = 0.5
 
-## Generating Additional Data
 
-This is optional!
+![alt text](\results\data2_1.png "Logo Title Text 1")
+![alt text](\results\data2_2.png "Logo Title Text 1")
 
-If you'd like to generate your own radar and lidar data, see the
-[utilities repo](https://github.com/udacity/CarND-Mercedes-SF-Utilities) for
-Matlab scripts that can generate additional data.
+The following plots show the NIS for the laser and radar data. It appears the process noise for the laser was estimated conservatively, while the noise the radar was estimated more appropriately.
 
-## Project Instructions and Rubric
-
-This information is only accessible by people who are already enrolled in Term 2
-of CarND. If you are enrolled, see [the project page](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/c3eb3583-17b2-4d83-abf7-d852ae1b9fff/concepts/4d0420af-0527-4c9f-a5cd-56ee0fe4f09e)
-for instructions and the project rubric.
+![alt text](\results\data2_NIS_laser.png "Logo Title Text 1")
+![alt text](\results\data2_NIS_radar.png "Logo Title Text 1")

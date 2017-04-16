@@ -11,11 +11,16 @@
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
+double constrainAngle(double x);
+
 class UKF {
 public:
 
   ///* initially set to false, set to true in first call of ProcessMeasurement
   bool is_initialized_;
+
+  ///* timestamp holder
+  double previous_timestamp_;
 
   ///* if this is false, laser measurements will be ignored (except for init)
   bool use_laser_;
@@ -26,11 +31,31 @@ public:
   ///* state vector: [pos1 pos2 vel_abs yaw_angle yaw_rate] in SI units and rad
   VectorXd x_;
 
+  //create augmented mean vector
+  VectorXd x_aug_;
+
   ///* state covariance matrix
   MatrixXd P_;
 
+  //create augmented state covariance
+  MatrixXd P_aug_;
+
+  ///* root of P_
+  MatrixXd A_;
+
+  //create square root of P_aug_
+  MatrixXd A_aug_;
+
+  ///* initial sigma points
+  MatrixXd Xsig_;
+
+  ///* augmented sigma points
+  MatrixXd Xsig_aug_;
+
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
+
+
 
   ///* time when the state is true, in us
   long long time_us_;
