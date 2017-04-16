@@ -22,13 +22,13 @@ Accuracy - RMSE:
 
 The following plots show the output for dataset 1. Interestingly, the velocity is tracked as negative. The RMSE would increase slightly if the velocity and yaw were flipped after prediction, perhaps the yaw rate also had to be managed.
 
-![alt text](results\data1_1.png "Logo Title Text 1")
-![alt text](results\data1_2.png "Logo Title Text 1")
+![alt text](results/data1_1.png "Logo Title Text 1")
+![alt text](results/data1_2.png "Logo Title Text 1")
 
 The following plots show the NIS for the laser and radar data. It appears the process noise for the laser was estimated conservatively, while the noise the radar was estimated appropriately.
 
-![alt text](results\data1_NIS_laser.png "Logo Title Text 1")
-![alt text](results\data1_NIS_radar.png "Logo Title Text 1")
+![alt text](results/data1_NIS_laser.png "Logo Title Text 1")
+![alt text](results/data1_NIS_radar.png "Logo Title Text 1")
 
 
 ## Dataset 2
@@ -41,10 +41,10 @@ Accuracy - RMSE:
 - std_yawdd_ = 0.5
 
 
-![alt text](results\data2_1.png "Logo Title Text 1")
-![alt text](results\data2_2.png "Logo Title Text 1")
+![alt text](results/data2_1.png "Logo Title Text 1")
+![alt text](results/data2_2.png "Logo Title Text 1")
 
 The following plots show the NIS for the laser and radar data. It appears the process noise for the laser was estimated conservatively, while the noise the radar was estimated more appropriately.
 
-![alt text](results\data2_NIS_laser.png "Logo Title Text 1")
-![alt text](results\data2_NIS_radar.png "Logo Title Text 1")
+![alt text](results/data2_NIS_laser.png "Logo Title Text 1")
+![alt text](results/data2_NIS_radar.png "Logo Title Text 1")
