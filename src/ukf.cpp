@@ -36,10 +36,10 @@ UKF::UKF() {
   P_ = MatrixXd(5, 5);
 
   // Process noise standard deviation longitudinal acceleration in m/s^2
-  std_a_ = 3.0; // a balance between smooth tracking and fast response
+  std_a_ = 1.5; // a balance between smooth tracking and fast response
 
   // Process noise standard deviation yaw acceleration in rad/s^2
-  std_yawdd_ = 0.6;
+  std_yawdd_ = 0.54;
 
   // Laser measurement noise standard deviation position1 in m
   std_laspx_ = 0.15;
@@ -64,11 +64,11 @@ UKF::UKF() {
   Hint: one or more values initialized above might be wildly off...
   */
   //example init P_
-  P_ << 0.2, 0, 0, 0, 0,
-  0, 0.2, 0, 0, 0,
-  0, 0, 4.0, 0, 0,
-  0, 0, 0, 2.0, 0,
-  0, 0, 0, 0, 2.0;
+  P_ << 0.5, 0, 0, 0, 0,
+  0, 0.5, 0, 0, 0,
+  0, 0, 10.0, 0, 0,
+  0, 0, 0, 4.0, 0,
+  0, 0, 0, 0, 4.0;
 
 
 }
@@ -145,11 +145,12 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
     Prediction(delta_t);
     // normalize the yaw angle
     x_(3) = constrainAngle(x_(3));
-    //check for negative velocity, if so, flip vel and yaw angle
-    // if (x_(2) < 0){
-    //   x_(2) *= -1.0;
-    //   x_(3) = constrainAngle(x_(3)+M_PI);
-    // }
+    // check for negative velocity, if so, flip vel and yaw angle
+    if (x_(2) < 0){
+      x_(2) *= -1.0;
+      x_(4) *= -1.0;
+      x_(3) = constrainAngle(x_(3)+M_PI);
+    }
 
     cout << "xP " << x_ <<endl;
 

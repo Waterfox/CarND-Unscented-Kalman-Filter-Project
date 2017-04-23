@@ -13,12 +13,12 @@ Run the kalman Filter from the build directory
 
 ## Dataset 1
 Accuracy - RMSE:
-- x: 0.77
-- y: 0.86
-- vx:  0.58
-- vy:  0.59
-- std_a_ = 3.0
-- std_yawdd_ = 0.6
+- x: 0.794
+- y: 0.884
+- vx:  0.595
+- vy:  0.593
+- std_a_ = 1.5
+- std_yawdd_ = 0.54
 
 The following plots show the output for dataset 1. Interestingly, the velocity is tracked as negative. The RMSE would increase slightly if the velocity and yaw were flipped after prediction, perhaps the yaw rate also had to be managed.
 
@@ -35,10 +35,10 @@ The following plots show the NIS for the laser and radar data. It appears the pr
 Accuracy - RMSE:
 - x:  0.193
 - y:  0.189
-- vx:  0.525
-- vy:   0.509
-- std_a_ = 2.5
-- std_yawdd_ = 0.5
+- vx:  0.500
+- vy:   0.541
+- std_a_ = 1.5
+- std_yawdd_ = 0.54
 
 
 ![alt text](results/data2_1.png "Logo Title Text 1")
